@@ -11,7 +11,7 @@ public class DemoApplication {
 
     @GetMapping("/hello")
     public String message() {
-        return "Welcome to minikube Hello world example";
+        return "Welcome to Minikube Hello world example";
     }
 
     public static void main(String[] args) {
