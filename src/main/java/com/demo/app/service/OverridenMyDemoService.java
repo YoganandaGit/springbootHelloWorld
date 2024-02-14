@@ -1,4 +1,4 @@
-package com.srini.yoga.demo.service;
+package com.demo.app.service;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

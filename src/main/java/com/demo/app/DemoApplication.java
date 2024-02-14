@@ -1,6 +1,6 @@
-package com.srini.yoga.demo;
+package com.demo.app;
 
-import com.srini.yoga.demo.service.MyDemoService;
+import com.demo.app.service.MyDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
