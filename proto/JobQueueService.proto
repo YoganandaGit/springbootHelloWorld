@@ -1,0 +1,19 @@
+syntax = "proto3";
+package grpcdemo.proto;
+option java_outer_classname = "JobInfoProto";
+
+import "Common.proto";
+import "JobQueue.proto";
+
+service JobInfoService {
+  // Retrieve jobInformation based on the jobId
+  rpc GetJobInfo(JobInfoRequest)
+      returns (JobInfoResponse) {}
+}
+message JobInfoRequest   {
+  string jobId = 1;
+}
+
+
+
+

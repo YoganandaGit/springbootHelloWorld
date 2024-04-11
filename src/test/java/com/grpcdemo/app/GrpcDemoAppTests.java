@@ -1,10 +1,10 @@
-package com.demo.app;
+package com.grpcdemo.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class GrpcDemoAppTests {
 
     @Test
     void contextLoads() {

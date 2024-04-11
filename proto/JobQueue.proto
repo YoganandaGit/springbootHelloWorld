@@ -1,0 +1,21 @@
+syntax = "proto3";
+package grpcdemo.proto;
+option java_outer_classname = "JobQueueMessageProto";
+
+import "Common.proto";
+
+// Dataset operation
+enum DatasetOperation {
+    ADD = 0; // Insert/add operation
+    REMOVE = 1; // Delete/remove operation. `DELETE` is a macro defined in winnt.h.
+}
+
+//Job Info message
+message JobInfoResponse {
+    string jobId = 1;
+    string jobRef = 2;
+    string otherRef1 = 3;
+    string otherRef2 = 4;
+    string jobExternalRef= 5;
+    Status status = 6;
+}
