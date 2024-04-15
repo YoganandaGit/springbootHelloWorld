@@ -8,17 +8,20 @@
         <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.demo.app</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>demo</description>
+    <groupId>com.grpcdemo.app</groupId>
+    <artifactId>grpcdemo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>grpcdemo</name>
+    <description>grpcdemo</description>
     <properties>
         <java.version>11</java.version>
         <version.protobuf-java>3.24.4</version.protobuf-java>
         <version-grpc>1.62.2</version-grpc>
         <version-lombok>1.18.30</version-lombok>
         <version-tomcat-annotations-api>6.0.53</version-tomcat-annotations-api>
+        <google.guava.version>31.0.1-jre</google.guava.version>
+        <org.apache.collections4.version>4.4</org.apache.collections4.version>
+        <jakarta.querydsl.version>5.0.0</jakarta.querydsl.version>
     </properties>
     <dependencies>
         <dependency>
@@ -82,6 +85,31 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google.guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${org.apache.collections4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-jpa</artifactId>
+            <version>${jakarta.querydsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <version>${jakarta.querydsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>3.2.4</version>
         </dependency>
     </dependencies>
 
