@@ -22,6 +22,7 @@
         <google.guava.version>31.0.1-jre</google.guava.version>
         <org.apache.collections4.version>4.4</org.apache.collections4.version>
         <jakarta.querydsl.version>5.0.0</jakarta.querydsl.version>
+        <spring-boot-autoconfigure.version>3.2.4</spring-boot-autoconfigure.version>
     </properties>
     <dependencies>
         <dependency>
@@ -109,7 +110,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>3.2.4</version>
+            <version>${spring-boot-autoconfigure.version}</version>
         </dependency>
     </dependencies>
 
