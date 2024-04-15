@@ -14,7 +14,7 @@
     <name>grpcdemo</name>
     <description>grpcdemo</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <version.protobuf-java>3.24.4</version.protobuf-java>
         <version-grpc>1.62.2</version-grpc>
         <version-lombok>1.18.30</version-lombok>
