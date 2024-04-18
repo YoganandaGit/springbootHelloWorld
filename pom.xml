@@ -22,7 +22,8 @@
         <google.guava.version>31.0.1-jre</google.guava.version>
         <org.apache.collections4.version>4.4</org.apache.collections4.version>
         <jakarta.querydsl.version>5.0.0</jakarta.querydsl.version>
-        <spring-boot-autoconfigure.version>3.2.4</spring-boot-autoconfigure.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
+        <jarkarta.persistence-api.version>3.1.0</jarkarta.persistence-api.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,8 +38,8 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
@@ -105,12 +106,33 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
+            <classifier>jakarta</classifier>
             <version>${jakarta.querydsl.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring-boot-autoconfigure.version}</version>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jarkarta.persistence-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
     </dependencies>
 
@@ -177,6 +199,23 @@
                                 <source>target/generated-sources/protobuf/java</source>
                                 <source>target/generated-sources/protobuf/grpc-java</source>
                             </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.mysema.maven</groupId>
+                <artifactId>apt-maven-plugin</artifactId>
+                <version>1.1.3</version>
+                <executions>
+                    <execution>
+                        <id>jpa</id>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                           <!-- <outputDirectory>target/generated-sources/java</outputDirectory>-->
+                            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
