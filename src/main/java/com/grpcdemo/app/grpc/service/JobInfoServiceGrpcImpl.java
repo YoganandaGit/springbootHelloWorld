@@ -23,7 +23,7 @@ public class JobInfoServiceGrpcImpl extends JobInfoServiceGrpc.JobInfoServiceImp
             responseObserver.onNext(externalApiService.getJobInfo(request.getJobId()));
             responseObserver.onCompleted();
         } catch (Throwable th) {
-            log.error("Error in getDatasetAssignments: " + ExceptionUtils.getMessage(th), th);
+            log.error("Error in getJobInfo Service: " + ExceptionUtils.getMessage(th), th);
             responseObserver.onNext(JobQueueMessageProto.JobInfoResponse.newBuilder().setStatus(CommonProto.Status.newBuilder().setSuccess(false).setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value()).setError(ExceptionUtils.getMessage(th)).build()).build());
             responseObserver.onCompleted();
         }
