@@ -8,12 +8,19 @@ import "JobQueue.proto";
 service JobInfoService {
   // Retrieve jobInformation based on the jobId
   rpc GetJobInfo(JobInfoRequest)
-      returns (JobInfoResponse) {}
+      returns (JobInfoResponse);
+
+  rpc GetJobInfoList(EmptyRequest) returns (JobInfoResponses);
 }
+
+
 message JobInfoRequest   {
   string jobId = 1;
 }
 
+// Request message for no-argument method
+message EmptyRequest {
+}
 
 
 

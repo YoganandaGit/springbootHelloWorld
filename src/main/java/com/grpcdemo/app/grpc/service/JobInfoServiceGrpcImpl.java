@@ -28,4 +28,16 @@ public class JobInfoServiceGrpcImpl extends JobInfoServiceGrpc.JobInfoServiceImp
             responseObserver.onCompleted();
         }
     }
+
+    @Override
+    public void getJobInfoList(JobInfoProto.EmptyRequest request, io.grpc.stub.StreamObserver<JobQueueMessageProto.JobInfoResponses> responseObserver) {
+        try {
+            responseObserver.onNext(externalApiService.getJobInfoList());
+            responseObserver.onCompleted();
+        } catch (Throwable th) {
+            log.error("Error in getJobInfoList Service: " + ExceptionUtils.getMessage(th), th);
+            responseObserver.onNext(JobQueueMessageProto.JobInfoResponses.newBuilder().setStatus(CommonProto.Status.newBuilder().setSuccess(false).setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value()).setError(ExceptionUtils.getMessage(th)).build()).build());
+            responseObserver.onCompleted();
+        }
+    }
 }

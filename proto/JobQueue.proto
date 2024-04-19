@@ -19,3 +19,8 @@ message JobInfoResponse {
     string jobExternalRef= 5;
     Status status = 6;
 }
+
+message JobInfoResponses {
+    repeated JobInfoResponse items = 1;
+    Status status = 2;// List of job info
+}

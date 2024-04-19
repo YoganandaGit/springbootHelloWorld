@@ -1,5 +1,6 @@
 package com.grpcdemo.app.grpc.service;
 
+import com.google.common.collect.Lists;
 import com.grpcdemo.app.grpc.querydsl.entities.JobInfo;
 import com.grpcdemo.app.grpc.querydsl.entities.QJobInfo;
 import com.grpcdemo.app.grpc.querydsl.repository.JobInfoRepository;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.IterableUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -31,6 +34,16 @@ public class ExternalApiService {
         jobInfoResponseBuilder.setJobId(jobId).setJobRef(jobInfoByJobId.getJobRef()).setJobExternalRef(jobInfo.getJobExternalRef()).setOtherRef1(jobInfo.getOtherRef1()).setOtherRef2(jobInfo.getOtherRef2()).build();
         deleteJobInfo(NumberUtils.createLong(String.valueOf(jobInfoByJobId.getId())));
         return jobInfoResponseBuilder.build();
+    }
+
+    public JobQueueMessageProto.JobInfoResponses getJobInfoList() {
+        JobQueueMessageProto.JobInfoResponses.Builder jobInfoResponsesBuilder = JobQueueMessageProto.JobInfoResponses.newBuilder();
+        IterableUtils.emptyIfNull(getJobInfos()).forEach(jobInfo -> {
+            JobQueueMessageProto.JobInfoResponse.Builder jobInfoResponseBuilder = JobQueueMessageProto.JobInfoResponse.newBuilder();
+            jobInfoResponseBuilder.setJobId(jobInfo.getJobId()).setJobRef(jobInfo.getJobRef()).setJobExternalRef(jobInfo.getJobExternalRef()).setOtherRef1(jobInfo.getOtherRef1()).setOtherRef2(jobInfo.getOtherRef2()).build();
+            jobInfoResponsesBuilder.addItems(jobInfoResponseBuilder.build());
+        });
+        return jobInfoResponsesBuilder.build();
     }
 
     public JobInfo saveJobInfo(String jobId) {
