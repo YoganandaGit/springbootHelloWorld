@@ -10,7 +10,7 @@ service JobInfoService {
   rpc GetJobInfo(JobInfoRequest)
       returns (JobInfoResponse);
 
-  rpc GetJobInfoList(EmptyRequest) returns (JobInfoResponses);
+  rpc GetJobInfoList(EmptyRequest) returns (stream JobInfoResponses);
 }
 
 
