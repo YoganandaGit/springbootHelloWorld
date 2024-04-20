@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.grpcdemo.app</groupId>
@@ -22,7 +22,7 @@
         <google.guava.version>31.0.1-jre</google.guava.version>
         <org.apache.collections4.version>4.4</org.apache.collections4.version>
         <jakarta.querydsl.version>5.0.0</jakarta.querydsl.version>
-        <spring-boot.version>3.2.4</spring-boot.version>
+        <spring-boot.version>3.2.5</spring-boot.version>
         <jarkarta.persistence-api.version>3.1.0</jarkarta.persistence-api.version>
     </properties>
     <dependencies>
@@ -209,7 +209,6 @@
                 <version>1.1.3</version>
                 <executions>
                     <execution>
-                        <id>jpa</id>
                         <goals>
                             <goal>process</goal>
                         </goals>
